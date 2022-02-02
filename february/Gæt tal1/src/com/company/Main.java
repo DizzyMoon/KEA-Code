@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +8,7 @@ public class Main {
         //TILFØJ VARIABLER
         int correctNumber = 1 +(int)(Math.random() * 100);
         boolean numberIsCorrect = false;
+        
         //MAIN
         while (!numberIsCorrect) {
 
