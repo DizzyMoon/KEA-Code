@@ -8,7 +8,8 @@ public class Main {
         //TILFØJ VARIABLER
         int correctNumber = 1 +(int)(Math.random() * 100);
         boolean numberIsCorrect = false;
-        
+        int attempts = 0;
+
         //MAIN
         while (!numberIsCorrect) {
 
@@ -22,7 +23,7 @@ public class Main {
                 System.out.println("Tallet er højere ");
             }
 
-            //HVIS TAL ER STØRRE END DET KORREKTE TAL
+            //HVIS TAL ER STØRRE END DET KORREKTE TAL/home/irozage/KEA/Code/KEA-Code/february/Gæt tal1
             else if (number > correctNumber){
                 System.out.println("Tallet er lavere ");
             }
@@ -30,7 +31,8 @@ public class Main {
             //HVIS TAL ER LIG DET KORREKTE TAL
                 numberIsCorrect = true;
             }
+            attempts++;
         }
-        System.out.println("Korrekt!");
+        System.out.println("Korrekt! Du gættede tallet på " +attempts+ " forsøg!");
     }
 }
