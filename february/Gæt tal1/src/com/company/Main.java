@@ -23,7 +23,7 @@ public class Main {
                 System.out.println("Tallet er højere ");
             }
 
-            //HVIS TAL ER STØRRE END DET KORREKTE TAL/home/irozage/KEA/Code/KEA-Code/february/Gæt tal1
+            //HVIS TAL ER STØRRE END DET KORREKTE TAL
             else if (number > correctNumber){
                 System.out.println("Tallet er lavere ");
             }
