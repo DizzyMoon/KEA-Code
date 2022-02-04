@@ -5,21 +5,20 @@ public class Main {
     public static void main(String[] args) {
 
         //PRESENTATION
-        System.out.println("Velkommen til Mikkel\'s BMI Beregner :)");
+        System.out.println("Velkommen til Mikkel's BMI Beregner :)");
 
         //CREATE VARIABLES
         boolean invalidData = true;
         float height = 0;
-        Scanner heightObj = new Scanner(System.in);
-        Scanner weightObj = new Scanner(System.in);
-        Scanner boolObj = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+
 
         //CHECK IF INPUT IS CORRECT
         while(invalidData) {
 
             //ASK AND READ USER HEIGHT
             System.out.print("Skriv din højde i meter: ");
-            height = Float.parseFloat(heightObj.nextLine());
+            height = Float.parseFloat(sc.nextLine());
 
             //IF USER WROTE IN CENTIMETERS, RECALCULATE TO METERS
             if (height > 100){
@@ -31,7 +30,7 @@ public class Main {
                     while(jaNejInvalid) {
 
                         System.out.println("Mente du "+height/100+" meter? (ja/ nej)");
-                        String ja_nej = boolObj.nextLine();
+                        String ja_nej = sc.nextLine();
 
                         if (ja_nej.equals("ja")) {
                             height = height / 100;
@@ -53,7 +52,7 @@ public class Main {
 
         //ASK AND READ USER WEIGHT
         System.out.print("Skriv din vægt i kilogram: ");
-        float weight = Float.parseFloat(weightObj.nextLine());
+        float weight = Float.parseFloat(sc.nextLine());
 
         //CREATE VARIABLE BMI
         float BMI = weight / (height * height);
