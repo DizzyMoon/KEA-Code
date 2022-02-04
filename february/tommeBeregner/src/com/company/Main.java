@@ -15,6 +15,6 @@ public class Main {
         float inches = sc.nextFloat();
 
         //PRINT RESULT
-        System.out.print("Mål i centimeter: "+ tommer * 2.54f);
+        System.out.print("Mål i centimeter: "+ inches * 2.54f);
     }
 }
