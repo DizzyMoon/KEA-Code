@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.Scanner;
 
 public class Main {
@@ -6,7 +7,7 @@ public class Main {
 
     //DEFINE VARIABLES
     Scanner sc = new Scanner(System.in);
-    boolean yesNoInvalid = true;
+    boolean invalidAnswer = true;
     boolean writeNew = true;
 
     //PRESENTATION
@@ -16,7 +17,7 @@ public class Main {
     System.out.print("Skriv din alder her: ");
     int userAge = sc.nextInt();
     while (writeNew) { //REVERT POINT (IF USER WRITES JA WHEN PROMPTED)
-      yesNoInvalid = true; //RESET yesNoInvalid
+      invalidAnswer = true; //RESET invalidAnswer
       System.out.print("Skriv din date's alder her: ");
       int dateAge = sc.nextInt();
 
@@ -25,7 +26,7 @@ public class Main {
         int minimumAge = userAge / 2 + 7; //DEFINE MINIMUM AGE
 
         //CHECK IF DATE IS YOUNGER THAN MINIMUM AGE. PRINT RESULT
-        while (yesNoInvalid) { //REVERT POINT (IF USER INPUT IS INVALID)
+        while (invalidAnswer) { //REVERT POINT (IF USER INPUT IS INVALID)
           if (dateAge < minimumAge) {
             System.out.println("Din date er for ung :(");
             System.out.print("Skriv din date's alder igen? (ja/nej): ");
@@ -33,21 +34,19 @@ public class Main {
             //CHECK IF USER WRITES YES OR NO
             if (yesNo.equals("nej")) {
               writeNew = false;
-              yesNoInvalid = false;
+              invalidAnswer = false;
             } else if (yesNo.equals("ja")) {  //JUMP TO LINE 22
-              yesNoInvalid = false;
+              invalidAnswer = false;
             } else {
               System.out.println("Skriv venligst \"ja\" eller \"nej\" i skrivefeltet");
             }
-          }
-          else {
-            yesNoInvalid = false;
+          } else {
+            invalidAnswer = false;
             writeNew = false;
             System.out.println("Din date er ikke for ung ;)");
           }
         }
-      }
-      else {
+      } else {
         System.out.println("Din date er ikke for ung ;)");
       }
     }
