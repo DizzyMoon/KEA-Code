@@ -10,6 +10,7 @@ public class Main {
     String name;
     int age;
     String yesNo;
+    boolean answerValid = false;
 
     //ASK FOR USER'S NAME
     System.out.print("Hejsa!\nHvad hedder du? ");
@@ -24,16 +25,20 @@ public class Main {
 
     //PRINT USER'S BIRTHYEAR AND ASK HOW THEY'RE DOING
     System.out.println("Hmm, så er du nok født i " + birthYear + ", eller måske i sidste halvdel af " + (birthYear - 1));
-    System.out.print("Men går det ellers godt " + name + " " + age + " år ? (j/n): ");
-    yesNo = sc.nextLine();
+    System.out.print("Men går det ellers godt " + name + ", " + age + " år ? (j/n): ");
 
     //PRINT RESULT
-    if (yesNo.equals("j")) {
-      System.out.print("Det er godt at høre!");
-    } else if (yesNo.equals("n")) {
-      System.out.print("Træls at høre");
+    while (!answerValid) {
+      yesNo = sc.nextLine();
+      if (yesNo.equals("j") || yesNo.equals("ja")) {
+        System.out.print("Det er godt at høre!");
+        answerValid = true;
+      } else if (yesNo.equals("n") || yesNo.equals("nej")) {
+        System.out.print("Træls at høre");
+        answerValid = true;
+      } else {
+        System.out.println("Svar venligst med \"j\" eller \"n\"");
+      }
     }
-
-
   }
 }
