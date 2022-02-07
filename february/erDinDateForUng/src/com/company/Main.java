@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.Scanner;
 
 public class Main {
@@ -40,7 +39,8 @@ public class Main {
             } else {
               System.out.println("Skriv venligst \"ja\" eller \"nej\" i skrivefeltet");
             }
-          } else {
+          }
+          else {
             yesNoInvalid = false;
             writeNew = false;
             System.out.println("Din date er ikke for ung ;)");
