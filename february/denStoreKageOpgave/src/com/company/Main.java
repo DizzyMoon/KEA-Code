@@ -54,7 +54,7 @@ public class Main {
         butter * GRAM_WEIGHT + flour * GRAM_WEIGHT + bakingPowder * TS_WEIGHT +
         vanillaSugar * TS_WEIGHT + tButter * GRAM_WEIGHT + coconutFlour * GRAM_WEIGHT +
         brownFarin * GRAM_WEIGHT + tMilk * DEC_WEIGHT;
-    float tenPercentWeight = weightSum * 0.1f;
+    float tenPercentWeight = weightSum * 0.1f; //CALCULATE INGREDIENTS WEIGHT
 
     //PRINT INGREDIENTS
     System.out.println("\nIngredienser:\n");
