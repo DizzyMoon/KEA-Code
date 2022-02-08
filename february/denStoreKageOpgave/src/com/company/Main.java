@@ -50,32 +50,40 @@ public class Main {
     int tempIntMF = 225;
 
     //CALCULATE WEIGHT-SUM
-    float weightSum = eggs * EGG_WEIGHT + sugar * GRAM_WEIGHT + milk * DEC_WEIGHT + butter * GRAM_WEIGHT + flour * GRAM_WEIGHT + bakingPowder * TS_WEIGHT + vanillaSugar * TS_WEIGHT +
-        tButter * GRAM_WEIGHT + coconutFlour * GRAM_WEIGHT + brownFarin * GRAM_WEIGHT + tMilk * DEC_WEIGHT;
-    float tenPercent = weightSum * 0.1f;
+    float weightSum = eggs * EGG_WEIGHT + sugar * GRAM_WEIGHT + milk * DEC_WEIGHT +
+        butter * GRAM_WEIGHT + flour * GRAM_WEIGHT + bakingPowder * TS_WEIGHT +
+        vanillaSugar * TS_WEIGHT + tButter * GRAM_WEIGHT + coconutFlour * GRAM_WEIGHT +
+        brownFarin * GRAM_WEIGHT + tMilk * DEC_WEIGHT;
+    float tenPercentWeight = weightSum * 0.1f;
 
     //PRINT INGREDIENTS
     System.out.println("\nIngredienser:\n");
 
     System.out.printf(
-        "\t%d Æg \n" +
-            "\t%d %s Sukker\n" + //SUGAR
-            "\t%.1f %s Mælk\n" + //MILK
-            "\t%d %s Smør\n" + //BUTTER
-            "\t%d %s Hvedemel\n" + //FLOUR
-            "\t%.1f %s Bagepulver\n" + //BAKINGSODA
-            "\t%.1f %s Vaniljesukker\n\n", //VINILLASUGAR
+        """
+            \t%d Æg\s
+            \t%d %s Sukker
+            \t%.1f %s Mælk
+            \t%d %s Smør
+            \t%d %s Hvedemel
+            \t%.1f %s Bagepulver
+            \t%.1f %s Vaniljesukker
+
+            """,
         eggs, sugar, gram, milk, deciLiter, butter, gram, flour, gram, bakingPowder, teaSpoon, vanillaSugar, teaSpoon);
 
 
     //PRINT TOPPINGS
-      System.out.println("Toppings:\n");
+    System.out.println("Toppings:\n");
 
     System.out.printf(
-        "\t%d %s Smør\n" + //BUTTER
-            "\t%d %s Kokosmel\n" + //COCONUTMILK
-            "\t%d %s Brun Farin\n" + //BROWN FARIN
-            "\t%.1f %s Mælk\n\n", //MILK
+        """
+            \t%d %s Smør
+            \t%d %s Kokosmel
+            \t%d %s Brun Farin
+            \t%.1f %s Mælk
+
+            """,
         tButter, gram, coconutFlour, gram, brownFarin, gram, tMilk, deciLiter);
 
     //BAKING TIME
@@ -109,7 +117,7 @@ public class Main {
     //WEGHT DATA
     System.out.println("\nPraktisk info:");
     System.out.println("\n\tSamlede vægt af ingredienser: " + weightSum + " " + gram);
-    System.out.println("\n\tSamlede vægt af kage: " + (weightSum - tenPercent) + " " + gram);
+    System.out.println("\n\tSamlede vægt af kage: " + (weightSum - tenPercentWeight) + " " + gram);
 
     System.out.println("\n\nVELBEKOMME!");
   }
