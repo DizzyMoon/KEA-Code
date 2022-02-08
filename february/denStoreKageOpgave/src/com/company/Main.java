@@ -2,17 +2,17 @@ package com.company;
 
 import java.util.Scanner;
 
-import java.util.Formatter;
-
 public class Main {
   public static void main(String[] args) {
 
+    //USER DEPENDANT VARIABLES
     final int DEFAULT_PPL_NUM = 4;
     int numberOfPeople;
     Scanner sc = new Scanner(System.in);
 
+    //PRESENTATION
     System.out.println("\nVelkommen til Mikkel's Java version af Arla's drømmekage opskrift :)\n");
-    System.out.print("Til hvor mange mennesker? (normal størrelse er til 4 personer): ");
+    System.out.print("Hvor mange mennesker skal der laves til?: ");
     numberOfPeople = sc.nextInt();
 
     //MEASURING UNITS
@@ -29,7 +29,7 @@ public class Main {
     final int TS_WEIGHT = 5;
 
     //MAIN INGREDIENTS
-    int eggs = 4 / DEFAULT_PPL_NUM * numberOfPeople;
+    int eggs = numberOfPeople;
     int sugar = 300 / DEFAULT_PPL_NUM * numberOfPeople;
     float milk = 2f / DEFAULT_PPL_NUM * numberOfPeople;
     int butter = 50 / DEFAULT_PPL_NUM * numberOfPeople;
@@ -49,49 +49,46 @@ public class Main {
     int bakingTimeMF = 5;
     int tempIntMF = 225;
 
-
-
     //CALCULATE WEIGHT-SUM
     float weightSum = eggs * EGG_WEIGHT + sugar * GRAM_WEIGHT + milk * DEC_WEIGHT + butter * GRAM_WEIGHT + flour * GRAM_WEIGHT + bakingPowder * TS_WEIGHT + vanillaSugar * TS_WEIGHT +
         tButter * GRAM_WEIGHT + coconutFlour * GRAM_WEIGHT + brownFarin * GRAM_WEIGHT + tMilk * DEC_WEIGHT;
-
     float tenPercent = weightSum * 0.1f;
-
-
-
 
     //PRINT INGREDIENTS
     System.out.println("\nIngredienser:\n");
-    System.out.println(
-        "\t" + eggs + " Æg \n" +
-            "\t" + sugar + " " + gram + " Sukker\n" +
-            "\t" + milk + " " + deciLiter + " Mælk\n" +
-            "\t" + butter + " " + gram + " Smør\n" +
-            "\t" + flour + " " + gram + " Hvedemel\n" +
-            "\t" + bakingPowder + " " + teaSpoon + " Bagepulver\n" +
-            "\t" + vanillaSugar + " " + teaSpoon + " Vaniljesukker\n");
+
+    System.out.printf(
+        "\t%d Æg \n" +
+            "\t%d %s Sukker\n" + //SUGAR
+            "\t%.1f %s Mælk\n" + //MILK
+            "\t%d %s Smør\n" + //BUTTER
+            "\t%d %s Hvedemel\n" + //FLOUR
+            "\t%.1f %s Bagepulver\n" + //BAKINGSODA
+            "\t%.1f %s Vaniljesukker\n\n", //VINILLASUGAR
+        eggs, sugar, gram, milk, deciLiter, butter, gram, flour, gram, bakingPowder, teaSpoon, vanillaSugar, teaSpoon);
+
 
     //PRINT TOPPINGS
-    System.out.println("Toppings:\n");
-    System.out.println(
-        "\t" + tButter + " " + gram + " Smør\n" +
-            "\t" + coconutFlour + " " + gram + " Kokosmel\n" +
-            "\t" + brownFarin + " " + gram + " Brun farin \n" +
-            "\t" + tMilk + " " + deciLiter + " Mælk\n");
+      System.out.println("Toppings:\n");
+
+    System.out.printf(
+        "\t%d %s Smør\n" + //BUTTER
+            "\t%d %s Kokosmel\n" + //COCONUTMILK
+            "\t%d %s Brun Farin\n" + //BROWN FARIN
+            "\t%.1f %s Mælk\n\n", //MILK
+        tButter, gram, coconutFlour, gram, brownFarin, gram, tMilk, deciLiter);
 
     //BAKING TIME
     System.out.println("Bagetid:\n\n\tCa. " + bakingTime + " " + minutes + " ved " + tempInt + tempString
         + " - traditionel ovn.\n");
 
-    //BAKING TIME MF
+    //BAKING TIME WITH FILLING
     System.out.println("Bagetid med fyld:\n");
     System.out.println("\tCa. " + bakingTimeMF + " " + minutes + " ved " + tempIntMF + tempString
         + " - traditionel ovn.\n");
 
-    //PROCEDURE
+    //GUIDE
     System.out.println("Sådan gør du:\n");
-
-    //STEPS
     System.out.println("""
         \t1. Pisk æg og sukker lyst og luftigt.
                 
@@ -109,11 +106,11 @@ public class Main {
         \t   kagen og bag den færdig, stadig midt i ovnen.
         """);
 
+    //WEGHT DATA
     System.out.println("\nPraktisk info:");
     System.out.println("\n\tSamlede vægt af ingredienser: " + weightSum + " " + gram);
     System.out.println("\n\tSamlede vægt af kage: " + (weightSum - tenPercent) + " " + gram);
 
-    //VELBEKOMME!
-    System.out.println("\nVelbekomme!");
+    System.out.println("\n\nVELBEKOMME!");
   }
 }
