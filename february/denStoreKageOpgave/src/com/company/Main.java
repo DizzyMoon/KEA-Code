@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
 
-    //USER DEPENDANT VARIABLES
+    //MISC VARIABLES
     final int DEFAULT_PPL_NUM = 4;
     int numberOfPeople;
     Scanner sc = new Scanner(System.in);
@@ -103,9 +103,10 @@ public class Main {
         \t2. Varm imens mælk og smør (lillefingervarmt).
                 
         \t3. Bland mel, bage pulver og vaniljesukker sammen. Vend det forsigtigt, drysset gennem
+        \t   en sigte, i dejen skiftevis med mælkeblandingen.
                 
         \t4. Hæld dejen i en lille bradepande beklædt med bagepapir (ca. 5 x 22 x 30 cm) og bag
-        \t   kagen midt i ovnen.en sigte, i dejen skiftevis med mælkeblandingen.
+        \t   kagen midt i ovnen.
              
         \t5. Kom smør, kokosmel, farin og mælk i en tykbundet gryde og bring det i kog under
         \t   omrøring.
@@ -114,7 +115,7 @@ public class Main {
         \t   kagen og bag den færdig, stadig midt i ovnen.
         """);
 
-    //WEGHT DATA
+    //WEIGHT DATA
     System.out.println("\nPraktisk info:");
     System.out.println("\n\tSamlede vægt af ingredienser: " + weightSum + " " + gram);
     System.out.println("\n\tSamlede vægt af kage: " + (weightSum - tenPercentWeight) + " " + gram);
