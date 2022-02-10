@@ -7,7 +7,7 @@ public class Main {
 
     Scanner sc = new Scanner(System.in);
 
-    System.out.print("Skriv en sætning med minimum 4 mellemrum: ");
+    System.out.print("Skriv en sætning med< minimum 4 mellemrum: ");
     String text = sc.nextLine();
     String space = " ";
     int fourthSpace = text.indexOf(" ");
@@ -16,6 +16,6 @@ public class Main {
       fourthSpace = text.indexOf(space, fourthSpace + 1);
     }
     System.out.println("Det fjerde mellemrum er index " + fourthSpace);
-    System.out.println("Ordet efter det fjerde mellemrum er: " + text.substring(fourthSpace + 1, text.indexOf()));
+//    System.out.println("Ordet efter det fjerde mellemrum er: " + text.substring(fourthSpace + 1, text.indexOf(space)));
   }
 }
