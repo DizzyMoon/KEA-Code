@@ -57,18 +57,18 @@ public class Main {
         //CREATE VARIABLE BMI
         float BMI = weight / (height * height);
 
-        //PRINT BMI
-        System.out.println("Din BMI er: "+BMI);
 
         //PRINT RESULT
+        System.out.printf("Din BMI er: %.1f\n", BMI);
+
         if (BMI<18.5){
             System.out.println("Du er undervægtig :(");
         }
-        else if (BMI>=18.5 && BMI < 25){
+        else if (BMI < 25){
             System.out.println("Du har en normal vægt :)");
         }
 
-        else if (BMI > 25 && BMI < 30){
+        else if (BMI < 30){
             System.out.println("Du er overvægtig :(");
         }
 

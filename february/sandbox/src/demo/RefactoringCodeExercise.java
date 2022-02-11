@@ -1,4 +1,4 @@
-package com.company;
+package demo;
 
 import java.util.Scanner;
 
@@ -13,23 +13,25 @@ public class RefactoringCodeExercise {
     int money = scanner.nextInt();
     int bet;
 
-    while(money > 0) {
+    while (money > 0) {
+      System.out.println("You have $" + money + " left.");
       if (money < 500) {
-        System.out.println("You have $" + money + " left.");
+        //System.out.println("You have $" + money + " left.");
         System.out.println("Cash is dangerously low. Bet carefully.");
-        System.out.println("How much do you want to bet? ");
+        //System.out.println("How much do you want to bet? ");
         //bet = scanner.nextInt();
       } else if (money < 1000) {
-        System.out.println("You have $" + money + " left.");
+        // System.out.println("You have $" + money + " left.");
         System.out.println("Cash is somewhat low. Bet moderately.");
-        System.out.println("How much do you want to bet? ");
+        //System.out.println("How much do you want to bet? ");
         //bet = scanner.nextInt();
       } else {
-        System.out.println("You have $" + money + " left.");
+        //System.out.println("You have $" + money + " left.");
         System.out.println("Cash is in good shape. Bet liberally.");
-        System.out.println("How much do you want to bet? ");
+        //System.out.println("How much do you want to bet? ");
         //bet = scanner.nextInt();
       }
+      System.out.println("How much do you want to bet? ");
       bet = scanner.nextInt();
       money = money - bet;
     }

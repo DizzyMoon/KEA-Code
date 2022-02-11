@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -6,7 +7,10 @@ public class Main {
     public static void main(String[] args) {
 
         //TILFØJ VARIABLER
-        int correctNumber = 1 +(int)(Math.random() * 100);
+
+        Random random = new Random();
+
+        int correctNumber = random.nextInt(100-1)+1;
         boolean numberIsCorrect = false;
         int attempts = 0;
 
