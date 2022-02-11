@@ -13,6 +13,10 @@ public class RefactoringCodeExercise {
     int money = scanner.nextInt();
     int bet;
 
+    int x = 2;
+    int y = 4;
+    
+
     while (money > 0) {
       System.out.println("You have $" + money + " left.");
       if (money < 500) {
