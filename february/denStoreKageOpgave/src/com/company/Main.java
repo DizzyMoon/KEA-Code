@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
 
+    public void methodTest(){
+      System.out.println("Metode test");
+    }
+
     //MISC VARIABLES
     final int DEFAULT_PPL_NUM = 4;
     int numberOfPeople;
@@ -15,33 +19,32 @@ public class Main {
     System.out.print("Hvor mange mennesker skal der laves til?: ");
     numberOfPeople = sc.nextInt();
 
-    //MEASURING UNITS
-    String gram = "g";
-    String deciLiter = "dl";
-    String teaSpoon = "tsk";
-    String minutes = "min.";
-    String tempString = "C";
-
     //WEIGHT VARIABLES
-    final int EGG_WEIGHT = 50;
-    final int GRAM_WEIGHT = 1;
-    final int DEC_WEIGHT = 100;
-    final int TS_WEIGHT = 5;
+    final int EGG_GRAM = 50;
+    final int MILK_GRAM_PER_DECILITER = 100;
+    final int SUGAR_GRAM = 1;
+    final int BUTTER_GRAM = 1;
+    final int FLOUR_GRAM = 1;
+    final int COCONUT_FLOUR_GRAM = 1;
+    final int BROWN_FARIN_GRAM = 1;
+    final int BAKING_SODA_GRAM = 5;
+    final int VANILLA_SUGAR_GRAM = 5;
+
 
     //MAIN INGREDIENTS
     int eggs = numberOfPeople;
-    int sugar = 300 / DEFAULT_PPL_NUM * numberOfPeople;
-    float milk = 2f / DEFAULT_PPL_NUM * numberOfPeople;
-    int butter = 50 / DEFAULT_PPL_NUM * numberOfPeople;
-    int flour = 250 / DEFAULT_PPL_NUM * numberOfPeople;
-    float bakingPowder = 3f / DEFAULT_PPL_NUM * numberOfPeople;
-    float vanillaSugar = 1f / DEFAULT_PPL_NUM * numberOfPeople;
+    int gramSugar = 300 / DEFAULT_PPL_NUM * numberOfPeople;
+    double dLMilk = 2.0 / DEFAULT_PPL_NUM * numberOfPeople;
+    int gramButter = 50 / DEFAULT_PPL_NUM * numberOfPeople;
+    int gramFlour = 250 / DEFAULT_PPL_NUM * numberOfPeople;
+    double tskBakingSoda = 3.0 / DEFAULT_PPL_NUM * numberOfPeople;
+    double tskVanillaSugar = 1.0 / DEFAULT_PPL_NUM * numberOfPeople;
 
     //TOPPING INGREDIENTS
-    int tButter = 100 / DEFAULT_PPL_NUM * numberOfPeople;
-    int coconutFlour = 150 / DEFAULT_PPL_NUM * numberOfPeople;
-    int brownFarin = 225 / DEFAULT_PPL_NUM * numberOfPeople;
-    float tMilk = 0.5f / DEFAULT_PPL_NUM * numberOfPeople;
+    int gramTButter = 100 / DEFAULT_PPL_NUM * numberOfPeople;
+    int gramCoconutFlour = 150 / DEFAULT_PPL_NUM * numberOfPeople;
+    int gramBrownFarin = 225 / DEFAULT_PPL_NUM * numberOfPeople;
+    double dLTMilk = 0.5 / DEFAULT_PPL_NUM * numberOfPeople;
 
     //PROCEDURE VARIABLES
     int bakingTime = 20;
@@ -50,27 +53,27 @@ public class Main {
     int tempIntMF = 225;
 
     //CALCULATE WEIGHT-SUM
-    float weightSum = eggs * EGG_WEIGHT + sugar * GRAM_WEIGHT + milk * DEC_WEIGHT +
-        butter * GRAM_WEIGHT + flour * GRAM_WEIGHT + bakingPowder * TS_WEIGHT +
-        vanillaSugar * TS_WEIGHT + tButter * GRAM_WEIGHT + coconutFlour * GRAM_WEIGHT +
-        brownFarin * GRAM_WEIGHT + tMilk * DEC_WEIGHT;
-    float tenPercentWeight = weightSum * 0.1f; //CALCULATE INGREDIENTS WEIGHT
+    double weightSum = eggs * EGG_GRAM + gramSugar * SUGAR_GRAM + dLMilk * MILK_GRAM_PER_DECILITER +
+        gramButter * BUTTER_GRAM + gramFlour * FLOUR_GRAM + tskBakingSoda * BAKING_SODA_GRAM +
+        tskVanillaSugar * VANILLA_SUGAR_GRAM + gramTButter * BUTTER_GRAM + gramCoconutFlour * COCONUT_FLOUR_GRAM +
+        gramBrownFarin * BROWN_FARIN_GRAM + dLTMilk * MILK_GRAM_PER_DECILITER;
+    double tenPercentWeight = weightSum * 0.1; //CALCULATE CAKE-WEIGHT AFTER BAKING
 
     //PRINT INGREDIENTS
     System.out.println("\nIngredienser:\n");
 
     System.out.printf(
         """
-            \t%d Æg\s
-            \t%d %s Sukker
-            \t%.1f %s Mælk
-            \t%d %s Smør
-            \t%d %s Hvedemel
-            \t%.1f %s Bagepulver
-            \t%.1f %s Vaniljesukker
+            \tÆg................: %5d stk
+            \tSukker............: %5d g
+            \tMælk..............: %5.1f dL
+            \tSmør..............: %5d g
+            \tHvedemel..........: %5d g
+            \tBagepulver........: %5.1f tsk
+            \tVaniljesukker.....: %5.1f tsk
 
             """,
-        eggs, sugar, gram, milk, deciLiter, butter, gram, flour, gram, bakingPowder, teaSpoon, vanillaSugar, teaSpoon);
+        eggs, gramSugar, dLMilk, gramButter, gramFlour, tskBakingSoda, tskVanillaSugar);
 
 
     //PRINT TOPPINGS
@@ -78,22 +81,20 @@ public class Main {
 
     System.out.printf(
         """
-            \t%d %s Smør
-            \t%d %s Kokosmel
-            \t%d %s Brun Farin
-            \t%.1f %s Mælk
+            \tSmør..............: %5d g
+            \tKokosmel..........: %5d g
+            \tBrun Farin........: %5d g
+            \tMælk..............: %5.1f dL
 
             """,
-        tButter, gram, coconutFlour, gram, brownFarin, gram, tMilk, deciLiter);
+        gramTButter, gramCoconutFlour, gramBrownFarin, dLTMilk);
 
     //BAKING TIME
-    System.out.println("Bagetid:\n\n\tCa. " + bakingTime + " " + minutes + " ved " + tempInt + tempString
-        + " - traditionel ovn.\n");
+    System.out.println("Bagetid:\n\n\tCa. " + bakingTime + " Minutter ved " + tempInt + "C - traditionel ovn.\n");
 
     //BAKING TIME WITH FILLING
     System.out.println("Bagetid med fyld:\n");
-    System.out.println("\tCa. " + bakingTimeMF + " " + minutes + " ved " + tempIntMF + tempString
-        + " - traditionel ovn.\n");
+    System.out.println("\tCa. " + bakingTimeMF + " minutter ved " + tempIntMF + "C - traditionel ovn.\n");
 
     //GUIDE
     System.out.println("Sådan gør du:\n");
@@ -117,9 +118,8 @@ public class Main {
 
     //WEIGHT DATA
     System.out.println("\nPraktisk info:");
-    System.out.println("\n\tSamlede vægt af ingredienser: " + weightSum + " " + gram);
-    System.out.println("\n\tSamlede vægt af kage: " + (weightSum - tenPercentWeight) + " " + gram);
-
+    System.out.println("\n\tSamlede vægt af ingredienser: " + weightSum + " g");
+    System.out.println("\n\tSamlede vægt af kage: " + (weightSum - tenPercentWeight) + " g");
     System.out.println("\n\nVELBEKOMME!");
   }
 }

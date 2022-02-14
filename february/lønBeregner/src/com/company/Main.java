@@ -7,15 +7,15 @@ public class Main {
 
     //DECLARE VARIABLES
     Scanner sc = new Scanner(System.in);
-    final float SALARY_PER_HOUR = 118.5f;
-    final float SALARY_BONUS = 1.5f;
-    final float AM_BIDRAG = 0.08f;
+    final double SALARY_PER_HOUR = 118.5;
+    final double SALARY_BONUS = 1.5;
+    final double AM_BIDRAG = 0.08;
     final int weeksPerYear = 52;
-    final float A_SKAT = 0.37f;
+    final double A_SKAT = 0.37;
     int workHoursPerWeek;
     int extraHours;
-    float weekSalaryPostTax;
-    final float PERSON_FRADRAG = 46600f / weeksPerYear;
+    double weekSalaryPostTax;
+    final double PERSON_FRADRAG = 46600.0 / weeksPerYear;
 
     //PRESENTATION
     System.out.println("Velkommen til Mikkel's lønberegner :)");
@@ -28,8 +28,8 @@ public class Main {
     extraHours = Integer.parseInt(sc.next());
 
     //CALCULATE SALARY
-    float extraSalary = extraHours * SALARY_PER_HOUR * SALARY_BONUS;
-    float weekSalaryPreTax = workHoursPerWeek * SALARY_PER_HOUR + extraSalary;
+    double extraSalary = extraHours * SALARY_PER_HOUR * SALARY_BONUS;
+    double weekSalaryPreTax = workHoursPerWeek * SALARY_PER_HOUR + extraSalary;
 
     //CALCULATE TAX
     if (weekSalaryPreTax < PERSON_FRADRAG){
@@ -44,7 +44,6 @@ public class Main {
     System.out.printf("Extra timer: %d\n\n", extraHours);
 
     System.out.printf("Bruttoløn: %.2f\n\n", weekSalaryPreTax);
-
     System.out.printf("Nettoløn: %.2f", weekSalaryPostTax);
   }
 }
