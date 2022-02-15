@@ -9,11 +9,14 @@ public class Main {
   String lastName;
 
 
+  public void writeFullName(String lastName, String firstName) {
+    writeFullName(lastName, firstName, null);
+  }
+
   public void writeFullName(String lastName, String firstName, String middleName) {
 
     String fullName;
-
-    if (middleName != "" && middleName != null) {
+    if (!middleName.equals("") && middleName != null) {
       fullName = firstName + " " + middleName + " " + lastName;
     } else {
       fullName = firstName + " " + lastName;
@@ -32,9 +35,23 @@ public class Main {
     lastName = fullName.substring(indexOfLastSpace + 1);
 
     //PRINT NAME
-    System.out.println("\nFornavn: " + firstName);
-    System.out.println("Mellemnavn: " + middleName);
-    System.out.println("Efternavn: " + lastName);
+    System.out.print("\nFornavn: ");
+    writeCapitalized(firstName);
+    System.out.print("Mellemnavn: ");
+    writeCapitalized(middleName);
+    System.out.print("Efternavn: ");
+    writeCapitalized(lastName);
+  }
+
+  public void writeCapitalized(String name) {
+    StringBuilder sb = new StringBuilder();
+    int start = 0;
+    String capFirstLetter = name.substring(start, start + 1).toUpperCase();
+    String restLetters = name.substring(start + 1).toLowerCase();
+
+    sb.append(capFirstLetter);
+    sb.append(restLetters);
+    System.out.print(sb + "\n");
   }
 
 
@@ -50,5 +67,12 @@ public class Main {
     String lastName = sc.nextLine();
 
     obj.writeFullName(lastName, firstName, middleName);
+
+/*
+    System.out.print("Skriv dit fulde navn: ");
+    String fullName = sc.nextLine();
+    obj.writeNameParts(fullName);
+
+ */
   }
 }
