@@ -16,8 +16,31 @@ public class Main {
   int gramCoconutFlour;
   int gramBrownFarin;
   double dLTMilk;
+  double weightSum = 0;
+  StringBuilder sb = new StringBuilder();
+  String spacing;
 
-  public void calculateIngredients(int numberOfPeople){
+  //CREATES SPACING FOR CORRECT RIGHT-ADJUST
+  public void createSpacing(String initiate) {
+    sb = new StringBuilder();
+    for (int i = 15 - initiate.length(); i != 0; i--) {
+      sb.append(".");
+    }
+    sb.append(":");
+    spacing = String.valueOf(sb);
+  }
+
+  public void printIngredient(String ingredientName, double amount, String measuringType) {
+    createSpacing(ingredientName);
+    System.out.printf("\t" + ingredientName + spacing + "%15.2f " + " " + measuringType + "\n", amount);
+  }
+
+  public void printIngredient(String ingredientName, int amount, String measuringType) {
+    createSpacing(ingredientName);
+    System.out.printf("\t" + ingredientName + spacing + "%15d " + " " + measuringType + "\n", amount);
+  }
+
+  public void calculateIngredients(int numberOfPeople) {
 
     final int DEFAULT_PPL_NUM = 4; //DECLARE DEFAULT
 
@@ -37,40 +60,27 @@ public class Main {
     dLTMilk = 0.5 / DEFAULT_PPL_NUM * numberOfPeople;
   }
 
-  public void displayIngredients(){
+  public void displayIngredients() {
 
+    //PRINT INGREDIENTS
     System.out.println("\nIngredienser:\n");
-
-    System.out.printf(
-
-        """
-            \tÆg................: %5d stk
-            \tSukker............: %5d g
-            \tMælk..............: %5.1f dL
-            \tSmør..............: %5d g
-            \tHvedemel..........: %5d g
-            \tBagepulver........: %5.1f tsk
-            \tVaniljesukker.....: %5.1f tsk
-
-            """,
-        eggs, gramSugar, dLMilk, gramButter, gramFlour, tskBakingSoda, tskVanillaSugar);
-
+    printIngredient("Æg", eggs, "stk");
+    printIngredient("Sukker", gramSugar, "g");
+    printIngredient("Mælk", dLMilk, "dL");
+    printIngredient("Smør", gramButter, "g");
+    printIngredient("Hvedemel", gramFlour, "g");
+    printIngredient("Bagepulver", tskBakingSoda, "tsk");
+    printIngredient("Vaniljesukker", tskVanillaSugar, "tsk");
 
     //PRINT TOPPINGS
-    System.out.println("Toppings:\n");
-
-    System.out.printf(
-        """
-            \tSmør..............: %5d g
-            \tKokosmel..........: %5d g
-            \tBrun Farin........: %5d g
-            \tMælk..............: %5.1f dL
-
-            """,
-        gramTButter, gramCoconutFlour, gramBrownFarin, dLTMilk);
+    System.out.println("\nToppings:\n");
+    printIngredient("Smør", gramTButter, "g");
+    printIngredient("Kokosmel", gramCoconutFlour, "g");
+    printIngredient("Brun Farin", gramBrownFarin, "g");
+    printIngredient("Mælk", dLTMilk, "dL");
   }
 
-  public void displayGuide(){
+  public void displayGuide() {
 
     //DECLARE VARIABLES
     int bakingTime = 20;
@@ -79,8 +89,9 @@ public class Main {
     int tempIntMF = 225;
 
     //DISPLAY GUIDE
-    System.out.println("Sådan gør du:\n");
+    System.out.println("\nSådan gør du:");
     System.out.println("""
+                
         \t1. Pisk æg og sukker lyst og luftigt.
                 
         \t2. Varm imens mælk og smør (lillefingervarmt).
@@ -106,40 +117,50 @@ public class Main {
     System.out.println("\tCa. " + bakingTimeMF + " minutter ved " + tempIntMF + "C - traditionel ovn.\n");
   }
 
-  public double calculateIngredientsWeight(){
+  public double calculateAndDisplayIngredientWeightGram(String ingredientName, double amount, double unitToGram) {
+    double weight = amount * unitToGram;
+    createSpacing(ingredientName);
+    //System.out.printf("\t" + ingredientName + spacing + "%15.2f " + weight +"\n", amount);
+    return weight;
+  }
 
-    //WEIGHT VARIABLES
-    final int SUGAR_GRAM = 1;
-    final int BUTTER_GRAM = 1;
-    final int FLOUR_GRAM = 1;
-    final int COCONUT_FLOUR_GRAM = 1;
-    final int BROWN_FARIN_GRAM = 1;
-    final int EGG_GRAM = 50;
-    final int MILK_GRAM_PER_DECILITER = 100;
-    final int BAKING_SODA_GRAM = 5;
-    final int VANILLA_SUGAR_GRAM = 5;
+  public double addToTotalWeight(String ingredientName, double amount, double weight) {
 
-    //CALCULATE WEIGHT SUM
-    double weightSum = eggs * EGG_GRAM + gramSugar * SUGAR_GRAM + dLMilk * MILK_GRAM_PER_DECILITER +
-        gramButter * BUTTER_GRAM + gramFlour * FLOUR_GRAM + tskBakingSoda * BAKING_SODA_GRAM +
-        tskVanillaSugar * VANILLA_SUGAR_GRAM + gramTButter * BUTTER_GRAM + gramCoconutFlour * COCONUT_FLOUR_GRAM +
-        gramBrownFarin * BROWN_FARIN_GRAM + dLTMilk * MILK_GRAM_PER_DECILITER;
+    weightSum = weightSum + calculateAndDisplayIngredientWeightGram(ingredientName, amount, weight);
 
     return weightSum;
   }
 
-  public double calculateCakeWeight(double ingredientsWeight){
+  public double calculateTotalWeight() {
+    addToTotalWeight("Æg", eggs, 50);
+    addToTotalWeight("Sukker", gramSugar, 1);
+    addToTotalWeight("Mælk", dLMilk, 10);
+    addToTotalWeight("Smør", gramButter, 1);
+    addToTotalWeight("Hvedemel", gramFlour, 1);
+    addToTotalWeight("Bagepulver", tskBakingSoda, 5);
+    addToTotalWeight("Vaniljesukker", tskVanillaSugar, 5);
+
+    addToTotalWeight("Smør", gramTButter, 1);
+    addToTotalWeight("Kokosmel", gramCoconutFlour, 1);
+    addToTotalWeight("Brun Farin", gramBrownFarin, 1);
+    addToTotalWeight("Mælk", dLTMilk, 10);
+
+    return weightSum;
+  }
+
+  public double calculateCakeWeight(double ingredientsWeight) {
     double cakeWeight = ingredientsWeight - ingredientsWeight * 0.1; //CALCULATE CAKE-WEIGHT AFTER BAKING
     return cakeWeight;
   }
 
-  public void displayWeight(){
+  public void displayWeight() {
     //WEIGHT DATA
     System.out.println("\nPraktisk info:");
-    System.out.println("\n\tSamlede vægt af ingredienser: " + calculateIngredientsWeight() + " g");
-    System.out.println("\n\tSamlede vægt af kage: " + calculateCakeWeight(calculateIngredientsWeight()) + " g");
+    System.out.println("\n\tSamlede vægt af ingredienser: " + calculateTotalWeight() + " g");
+    System.out.println("\n\tSamlede vægt af kage: " + calculateCakeWeight(calculateTotalWeight()) + " g");
   }
 
+  //MAIN
   public static void main(String[] args) {
 
     // DECLARE VARIABLES
@@ -155,7 +176,7 @@ public class Main {
 
     //CALCULATION
     obj.calculateIngredients(numberOfPeople);
-    obj.calculateIngredientsWeight();
+    obj.calculateTotalWeight();
 
     //DISPLAY RESULTS
     obj.displayIngredients();
