@@ -120,7 +120,7 @@ public class Main {
   public double calculateAndDisplayIngredientWeightGram(String ingredientName, double amount, double unitToGram) {
     double weight = amount * unitToGram;
     createSpacing(ingredientName);
-    //System.out.printf("\t" + ingredientName + spacing + "%15.2f " + weight +"\n", amount);
+    System.out.printf("\t" + ingredientName + spacing + "%15.2f g" + "\n", weight);
     return weight;
   }
 
@@ -131,33 +131,25 @@ public class Main {
     return weightSum;
   }
 
-  public double calculateTotalWeight() {
+  public void calculateAndDisplayTotalWeight() {
+    System.out.println("Praktiske informationer: ");
+
     addToTotalWeight("Æg", eggs, 50);
     addToTotalWeight("Sukker", gramSugar, 1);
-    addToTotalWeight("Mælk", dLMilk, 10);
-    addToTotalWeight("Smør", gramButter, 1);
+    addToTotalWeight("Mælk", dLMilk + dLTMilk, 10);
+    addToTotalWeight("Smør", gramButter + gramTButter, 1);
     addToTotalWeight("Hvedemel", gramFlour, 1);
     addToTotalWeight("Bagepulver", tskBakingSoda, 5);
     addToTotalWeight("Vaniljesukker", tskVanillaSugar, 5);
-
-    addToTotalWeight("Smør", gramTButter, 1);
     addToTotalWeight("Kokosmel", gramCoconutFlour, 1);
     addToTotalWeight("Brun Farin", gramBrownFarin, 1);
-    addToTotalWeight("Mælk", dLTMilk, 10);
-
-    return weightSum;
+    System.out.printf("\n\tTotal vægt af ingredienser: %.2f g", weightSum);
+    System.out.printf("\n\tTotal vægt af kage: %.2f g", calculateCakeWeight(weightSum));
   }
 
   public double calculateCakeWeight(double ingredientsWeight) {
     double cakeWeight = ingredientsWeight - ingredientsWeight * 0.1; //CALCULATE CAKE-WEIGHT AFTER BAKING
     return cakeWeight;
-  }
-
-  public void displayWeight() {
-    //WEIGHT DATA
-    System.out.println("\nPraktisk info:");
-    System.out.println("\n\tSamlede vægt af ingredienser: " + calculateTotalWeight() + " g");
-    System.out.println("\n\tSamlede vægt af kage: " + calculateCakeWeight(calculateTotalWeight()) + " g");
   }
 
   //MAIN
@@ -176,12 +168,14 @@ public class Main {
 
     //CALCULATION
     obj.calculateIngredients(numberOfPeople);
-    obj.calculateTotalWeight();
 
     //DISPLAY RESULTS
     obj.displayIngredients();
     obj.displayGuide();
-    obj.displayWeight();
+
+    //DISPLAY WEIGHT DATA
+    System.out.println("Praktiske informationer:");
+    obj.calculateAndDisplayTotalWeight();
 
     System.out.println("\n\nVELBEKOMME!");
   }
