@@ -124,16 +124,11 @@ public class Main {
     return weight;
   }
 
-  public double addToTotalWeight(String ingredientName, double amount, double weight) {
-
+  public void addToTotalWeight(String ingredientName, double amount, double weight) {
     weightSum = weightSum + calculateAndDisplayIngredientWeightGram(ingredientName, amount, weight);
-
-    return weightSum;
   }
 
   public void calculateAndDisplayTotalWeight() {
-    System.out.println("Praktiske informationer: ");
-
     addToTotalWeight("Æg", eggs, 50);
     addToTotalWeight("Sukker", gramSugar, 1);
     addToTotalWeight("Mælk", dLMilk + dLTMilk, 10);
@@ -152,7 +147,7 @@ public class Main {
     return cakeWeight;
   }
 
-  //MAIN
+  //--------------------MAIN--------------------------------------------------------------------------------------//
   public static void main(String[] args) {
 
     // DECLARE VARIABLES
@@ -174,9 +169,10 @@ public class Main {
     obj.displayGuide();
 
     //DISPLAY WEIGHT DATA
-    System.out.println("Praktiske informationer:");
+    System.out.println("Praktiske informationer:\n");
     obj.calculateAndDisplayTotalWeight();
 
+    //VELBEKOMME
     System.out.println("\n\nVELBEKOMME!");
   }
 }
