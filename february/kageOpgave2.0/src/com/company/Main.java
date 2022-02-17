@@ -147,12 +147,10 @@ public class Main {
     return cakeWeight;
   }
 
-  //--------------------MAIN--------------------------------------------------------------------------------------//
-  public static void main(String[] args) {
+  public void execute(){
 
     // DECLARE VARIABLES
     Scanner sc = new Scanner(System.in);
-    Main obj = new Main();
 
     //PRESENTATION
     System.out.println("\nVelkommen til Mikkel's Java version af Arla's drømmekage opskrift :)\n");
@@ -162,17 +160,21 @@ public class Main {
     int numberOfPeople = sc.nextInt();
 
     //CALCULATION
-    obj.calculateIngredients(numberOfPeople);
+    calculateIngredients(numberOfPeople);
 
     //DISPLAY RESULTS
-    obj.displayIngredients();
-    obj.displayGuide();
+    displayIngredients();
+    displayGuide();
 
     //DISPLAY WEIGHT DATA
     System.out.println("Praktiske informationer:\n");
-    obj.calculateAndDisplayTotalWeight();
+    calculateAndDisplayTotalWeight();
 
     //VELBEKOMME
     System.out.println("\n\nVELBEKOMME!");
+  }
+
+  public static void main(String[] args) {
+    new Main().execute();
   }
 }
