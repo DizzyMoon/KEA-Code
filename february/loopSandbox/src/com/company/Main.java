@@ -12,21 +12,25 @@ public class Main {
     }
   }
 
+
+  int i;
   public void coolCountDown(){
-    for (int i = 10; i > 0; i--){
+    for (i = 10; i > 0; i--){
       System.out.println("Count: " + i);
     }
+    System.out.println("i = " + i);
   }
 
   public void execute(){
     System.out.println("Recursive countdown:");
     recursiveCountDown();
-    System.out.println("The much cooler for loop countdown");
+    System.out.println("The much cooler for-loop countdown");
     coolCountDown();
-    System.out.println("While loop");
+    System.out.println("The kinda cool While-loop countdown");
     loopWhile();
-    System.out.println("Do While Loop");
+    System.out.println("The disgusting Do While-Loop countdown");
     loopDoWhile();
+
   }
 
   public void loopWhile(){
