@@ -24,6 +24,7 @@ public class Main {
     for (int i = 10; i > 0 - 1; i--) {
       System.out.println(i);
     }
+    System.out.println("LIFTOFF!");
   }
 
   public void printUnevenNumbers(){
