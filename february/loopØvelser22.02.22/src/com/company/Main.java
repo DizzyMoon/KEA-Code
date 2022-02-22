@@ -21,12 +21,12 @@ public class Main {
 
   public void findIndexOf() {
     System.out.println("Write search-character");
-    char charAt = input.charAt(0);
+
+    char charAt = sc.nextLine().charAt(0);
     boolean found = false;
 
-    String str = "This is a very cool string";
-    for (int i = 0; i < str.length() - 1; i++) {
-      if (str.charAt(i) == charAt) {
+    for (int i = 0; i < input.length(); i++) {
+      if (input.charAt(i) == charAt) {
         System.out.println(i);
         found = true;
       }
@@ -39,14 +39,14 @@ public class Main {
   public void reverseString() {
     sb.setLength(0);
     int i;
-    
+
     for (i = input.length(); i > 0; i--) {
       sb.append(input.charAt(i - 1));
     }
     System.out.println(sb);
   }
 
-  public void toUpperCase() {
+  public void toUpperCase(String input) {
     sb.setLength(0);
     int uniC;
 
@@ -86,7 +86,7 @@ public class Main {
     System.out.println("Print Mockification");
     mOcKiFy();
     System.out.println("To upper case function");
-    toUpperCase();
+    toUpperCase(input);
     System.out.println("Print reverse string");
     reverseString();
     System.out.println("Print indexes");
