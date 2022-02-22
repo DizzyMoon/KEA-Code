@@ -1,0 +1,82 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+  //GLOBAS VARIABLES
+  String input;
+  StringBuilder sb = new StringBuilder();
+  Scanner sc = new Scanner(System.in);
+
+  //METHODS
+  public void printOneCharAtATime() {
+    sb.setLength(0);
+    int i;
+    for (i = 0; i < input.length() - 1; i++) {
+      System.out.println(input.charAt(i));
+    }
+    System.out.println(input.charAt(i));
+  }
+
+  public void findIndexOf() {
+    System.out.println("Write search-character");
+    input = sc.nextLine();
+    char charAt = input.charAt(0);
+    boolean found = false;
+
+    String str = "This is a very cool string";
+    for (int i = 0; i < str.length() - 1; i++) {
+
+      if (str.charAt(i) == charAt) {
+        System.out.println(i);
+        found = true;
+      }
+    }
+    if (!found) {
+      System.out.println("-1");
+    }
+  }
+
+  public void reverseString() {
+
+    sb.setLength(0);
+    int i;
+    for (i = input.length(); i > 0; i--) {
+      sb.append(input.charAt(i - 1));
+    }
+    System.out.println(sb);
+
+
+  }
+
+  public void mOcKiFy() {
+    sb.setLength(0);
+    for (int i = 0; i < input.length() - 1; i += 2) {
+
+      sb.append(input.substring(i, i + 1).toUpperCase());
+      sb.append(input.substring(i + 1, i + 2).toLowerCase());
+    }
+    System.out.println(sb);
+  }
+
+  //EXECUTION
+  public void execute() {
+    System.out.println("Get user input: ");
+    input = sc.nextLine();
+    System.out.println("Print one char at a time");
+    printOneCharAtATime();
+    System.out.println("Print Mockification");
+    mOcKiFy();
+    System.out.println("Print reverse string");
+    reverseString();
+    System.out.println("Print indexes");
+    findIndexOf();
+
+  }
+
+  //MAIN
+  public static void main(String[] args) {
+    new Main().execute();
+  }
+}
