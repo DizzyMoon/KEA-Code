@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Arrays;
-
 public class Main {
 
   int counter = 0;
@@ -22,7 +20,6 @@ public class Main {
         counter = counter + 1;
       }
     }
-
   }
 
   public void udskrivKort() {
@@ -38,15 +35,15 @@ public class Main {
     cards[card2] = temp;
   }
 
-  public int randomNum(){
-    return (int) (Math.random() * 51);
+  public int randomNum() {
+    return (int) (Math.random() * 52);
   }
 
   public void blandKort() {
     String temp;
     int random1;
     int random2;
-    for (int i = 0; i <= 200; i++) {
+    for (int i = 0; i <= 52 * 5; i++) {
       random1 = randomNum();
       random2 = randomNum();
       temp = cards[random1];
@@ -58,7 +55,10 @@ public class Main {
   public void execute() {
     opretAlleKort();
     udskrivKort();
-    System.out.println("------------TEST---------------");
+    System.out.println("------------OMBYT INDEX 2 (3) OG INDEX 4 (5)-------------");
+    ombytToKort(2, 4);
+    udskrivKort();
+    System.out.println("------------BLAND TEST-----------------------------------");
     blandKort();
     udskrivKort();
   }
