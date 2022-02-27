@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Main {
 
     public int arrayIndexOf(String[] arrayIn, String input){
