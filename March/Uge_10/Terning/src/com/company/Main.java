@@ -1,8 +1,11 @@
 package com.company;
+import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
     Die die1 = new Die();
+    StringBuilder sb = new StringBuilder();
+    Scanner sc = new Scanner(System.in);
 
     int oneAmount = 0;
     int twoAmount = 0;
@@ -11,9 +14,9 @@ public class Main {
     int fiveAmount = 0;
     int sixAmount = 0;
 
-
     for(int i = 0; i <= 100; i++) {
       die1.roll();
+      sb.append("Throw ").append(i).append(": ").append(die1.faceValue).append("\n");
       switch (die1.faceValue) {
         case 1 -> oneAmount++;
         case 2 -> twoAmount++;
@@ -35,5 +38,11 @@ public class Main {
         Amount of 6's thrown: %d
         ---------------------------
         """, oneAmount, twoAmount, threeAmount, fourAmount, fiveAmount, sixAmount);
+
+    System.out.println("Display throws (y/n)?");
+    String input = sc.nextLine();
+    if (input.equals("y") || input.equals("Y")){
+      System.out.println(sb);
+    }
   }
 }

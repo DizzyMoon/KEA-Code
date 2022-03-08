@@ -7,12 +7,8 @@ public class Lampe {
     this.isOn = isOn;
   }
 
-  public void trykPåKontakt(){
-    if (isOn){
-      isOn = false;
-    } else {
-      isOn = true;
-    }
+  public void pressSwitch(){
+    isOn = !isOn;
   }
 
   public Lampe(){
