@@ -1,7 +1,7 @@
 package com.company;
 
 public class Die {
-  public int faceValue;
+  private int faceValue;
 
   public void setFaceValue(int faceValue) {
     this.faceValue = faceValue;

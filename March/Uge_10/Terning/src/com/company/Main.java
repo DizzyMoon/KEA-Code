@@ -16,8 +16,8 @@ public class Main {
 
     for(int i = 0; i <= 100; i++) {
       die1.roll();
-      sb.append("Throw ").append(i).append(": ").append(die1.faceValue).append("\n");
-      switch (die1.faceValue) {
+      sb.append("Throw ").append(i).append(": ").append(die1.getFaceValue()).append("\n");
+      switch (die1.getFaceValue()) {
         case 1 -> oneAmount++;
         case 2 -> twoAmount++;
         case 3 -> threeAmount++;
