@@ -11,7 +11,7 @@ public class MyDate {
     int[] leapYear = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     boolean isLeapYear = false;
 
-    if (year % 400 == 0){
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
       isLeapYear = true;
     }
 
