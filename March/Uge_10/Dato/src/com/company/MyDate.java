@@ -8,7 +8,6 @@ public class MyDate {
   public void setToNextDay(){
 
     int[] dayAmount = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    int[] leapYear = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     boolean isLeapYear = false;
 
     if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
@@ -16,13 +15,14 @@ public class MyDate {
     }
 
     if (!isLeapYear) {
-      leapYear(dayAmount);
+      addDay(dayAmount);
     } else {
-      leapYear(leapYear);
+      dayAmount[1] = 29;
+      addDay(dayAmount);
     }
   }
 
-  private void leapYear(int[] leapYear) {
+  private void addDay(int[] leapYear) {
     if (day < leapYear[month - 1]) {
       day++;
     } else {
