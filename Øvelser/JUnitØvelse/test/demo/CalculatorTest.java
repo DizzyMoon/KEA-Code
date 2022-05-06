@@ -24,7 +24,7 @@ class CalculatorTest {
     //act
     int actual = calc.sum(-3, -4);
     //assert
-    int expected = -8;
+    int expected = -7;
     assertEquals(actual, expected);
   }
 
