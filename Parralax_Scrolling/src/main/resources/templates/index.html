@@ -25,14 +25,13 @@
     let text = document.getElementById("text");
 
     window.addEventListener('scroll', function(){
-        var value = window.scrollY;
+        var scrollY = window.scrollY;
 
-        bg.style.top = value * 0.5 + 'px';
-        trash.style.top = -value * 0.15 + 'px';
-        skyline.style.top = value* 0.15 + 'px';
+        bg.style.top = scrollY * 0.5 + 'px';
+        trash.style.top = -scrollY * 0.15 + 'px';
+        skyline.style.top = scrollY* 0.15 + 'px';
 
-        text.style.top = value + 'px';
-
+        text.style.top = scrollY + 'px';
     })
 
 </script>
