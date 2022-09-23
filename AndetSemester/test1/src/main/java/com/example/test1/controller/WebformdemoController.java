@@ -15,17 +15,17 @@ public class WebformdemoController {
     }
 
     @PostMapping("/lavhilsen")
-    public String hilsenSide(@RequestParam("navn") String name, @RequestParam("alder") int age,
+    public String hilsenSide(@RequestParam("name") String name, @RequestParam("age") int age,
                              RedirectAttributes redirectAttributes) {
         System.out.println(name + ", " + age); //temp for database
-        redirectAttributes.addAttribute("navn", name);
-        redirectAttributes.addAttribute("alder", age);
+        redirectAttributes.addAttribute("name", name);
+        redirectAttributes.addAttribute("age", age);
 
         return "redirect:/lavhilsen";
     }
 
     @GetMapping("/lavhilsen")
-    public String lavHilsenSide(@RequestParam("navn") String name, @RequestParam("Alder") int age
+    public String lavHilsenSide(@RequestParam("name") String name, @RequestParam("age") int age
             ,Model model) {
         model.addAttribute("name", name);
         model.addAttribute("age", age);

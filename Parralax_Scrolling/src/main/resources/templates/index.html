@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Madspild Parallax</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+<section>
+
+    <img src="/images/Sky.png" id="bg" alt="BG Image">
+    <img src="/images/Skyline.png" id="skyline" alt="Skyline Image">
+    <img src="/images/Trash.png" id="trash" alt="Trash Image">
+
+    <h2 id="text">STOP MADSPILD</h2>
+
+</section>
+<script type="text/javascript">
+
+    let bg = document.getElementById("bg");
+    let skyline = document.getElementById("skyline");
+    let trash = document.getElementById("trash");
+
+    let text = document.getElementById("text");
+
+    window.addEventListener('scroll', function(){
+        var value = window.scrollY;
+
+        bg.style.top = value * 0.5 + 'px';
+        trash.style.top = -value * 0.15 + 'px';
+        skyline.style.top = value* 0.15 + 'px';
+
+        text.style.top = value + 'px';
+
+    })
+
+</script>
+
+
+</body>
+</html>
