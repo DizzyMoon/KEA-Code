@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Teknologi 1: Læringsmål: Mini projekt</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+            $("#tabs-om-1").tabs();
+
+            $("#btnRun").click(function () {
+                $.ajax({
+                    url: "https://api.nationalize.io/?name=" + encodeURIComponent($("#navn").val()),
+                    success: function (result) {
+                        $("#webresult").html("");
+                        $.each(result.country, function (i) {
+                            $.each(result.country[i], function (key, val) {
+                                $("#webresult").append("<div>" + key + ": " + val + "</div>");
+                            });
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div id="tabs">
+    <ul>
+        <li><a href="#start">Start</a></li>
+        <li><a href="#om-1">Område 1</a></li>
+        <li><a href="#om-2">Område 2</a></li>
+        <li><a href="#om-3">Område 3</a></li>
+        <li><a href="#om-4">Område 4</a></li>
+        <li><a href="#webs">Webservice</a></li>
+    </ul>
+    <div id="start">
+        <p><b>Programmet arbejder med de 4 læringsmålsområder</b></p>
+        <table>
+            <tr>
+                <td>Område 1: Cloud, Operativ systemer, Database.</td>
+            </tr>
+            <tr>
+                <td>Område 2: Talsystemer, Debug.</td>
+            </tr>
+            <tr>
+                <td>Område 3: Samtidighedsproblematikker.</td>
+            </tr>
+            <tr>
+                <td>Område 4: Computernetværk.</td>
+            </tr>
+            <tr>
+                <td>Webservice: Test område af webservice</td>
+            </tr>
+        </table>
+        <br/>
+
+        Mini projektet er udarbejdet af
+        <br/><br/>
+        Jeres fuldenavne og KEA e-mail tilføj evt. gruppenavn.
+        <br/><br/>
+        Afleveringsdato
+
+    </div>
+    <div id="om-1">
+        <div id="tabs-om-1">
+            <ul>
+                <li><a href="#sp-1">1</a></li>
+                <li><a href="#sp-2">2</a></li>
+                <li><a href="#sp-3">3</a></li>
+                <li><a href="#sp-4">4</a></li>
+                <li><a href="#sp-5">5</a></li>
+                <li><a href="#sp-6">6</a></li>
+                <li><a href="#sp-7">7</a></li>
+                <li><a href="#sp-8">8</a></li>
+                <li><a href="#sp-9">9</a></li>
+            </ul>
+
+            <div id="sp-1">
+
+                <p>Spørgsmål</p> <br/>
+                Beskriv en computers hardware.<br/><br/>
+
+                Svar:<br/>
+                En computer er hovedsageligt bygget af følgende komponenter: <br/>
+                - Motherboard: Connector til komponenter dvs. står for kommunikation mellem komponenter<br/>
+                - CPU/Processer: Står for beregninger<br/>
+                - GPU: Står får grafik<br/>
+                - RAM/Memory: Står for den midlertidige hukommelse<br/>
+                - Hard Disk: Står for opbevaring af data<br/>
+                - PSU: Supplier strøm til komponenter<br/>
+            </div>
+
+            <div id="sp-2">
+                Beskriv Azure Cloud og hvad du kan bruge den til.<br/><br/>
+                Svar:<br/>
+                Azure Cloud er server service distribueret af Microsoft.<br/>
+                Her er det muligt at leje forskellige servere til for eksempel virtuelle maskiner og databaser
+            </div>
+
+            <div id="sp-3">
+                Hvad er en RaspberryPi og hvad kan det bruges til?<br/><br/>
+
+                Svar:<br/>
+                En RaspberryPi er ganske enkelt egentlig bare en lille (de fleste modeller er i hvert fald) billig computer, designet<br/>
+                til tech-entusiaster, som har brug for en lille computer til lightweight tasks til diverse projekter. <br/>
+                Eksempler kunne f.eks. være: lightweight server, DIY hardware eller emulation.
+            </div>
+
+            <div id="sp-4">
+                Hvilke typer harddiske findes i en computer og hvad er forskellen på dem? <br/><br/>
+
+                Svar:<br/>
+                Der findes tre forskellige typer harddiske: <br/>
+                    -   SATA: HDD tilsluttet via. SATA forbindelse. Denne type HDD har en fysisk ruterende disk, som data skrives til<br/>
+                    -   SSD: En SSD gemmer data virtuelt i flash memory<br/>
+                    -   NVMe: En NVMe er en type SSD, som forbindes til motherboardet via. PCI i stedet for SATA
+            </div>
+
+            <div id="sp-5">
+                Hvilke typer busser findes der i en computer?<br/><br/>
+
+                Svar:<br/>
+                Der findes tre forskellige typer busser i en computer:<br/>
+                Address:
+                Data:
+                Control:
+            </div>
+
+        </div>
+    </div>
+    <div id="om-2">
+        <p>Spørgsmål og svar</p>
+    </div>
+    <div id="om-3">
+        <p>Spørgsmål og svar</p>
+    </div>
+    <div id="om-4">
+        <p>Spørgsmål og svar</p>
+    </div>
+    <div id="webs">
+        <table>
+            <tr>
+                <td>Navn</td>
+                <td style="padding-left: 20px;padding-right: 20px;"><input id="navn"
+                                                                           alt="Klik på knappen og se svaret fra webserveren"
+                                                                           title="Klik på knappen og se svaret fra webserveren">
+                </td>
+                <td>
+                    <button id="btnRun">Test webservice</button>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <br/>
+        <b>Svar fra webservice</b>
+        <div id="webresult"></div>
+    </div>
+
+</div>
+
+</body>
+
+</html>
